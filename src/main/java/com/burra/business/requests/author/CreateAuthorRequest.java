@@ -1,4 +1,4 @@
-package com.burra.business.requests;
+package com.burra.business.requests.author;
 
 public class CreateAuthorRequest {
   private String name;
