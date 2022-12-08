@@ -1,5 +1,7 @@
 package com.burra.business.responses;
 
+import com.burra.entities.Author;
+
 public class CreateAuthorResponse {
   private int id;
   private String name;
@@ -26,5 +28,10 @@ public class CreateAuthorResponse {
   }
 
   public CreateAuthorResponse() {
+  }
+
+  public CreateAuthorResponse(Author author) {
+    this.id = author.getId();
+    this.name = author.getName();
   }
 }
