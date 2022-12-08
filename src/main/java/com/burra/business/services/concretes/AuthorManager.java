@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import com.burra.business.exceptions.DataAlreadyExistsException;
-import com.burra.business.requests.CreateAuthorRequest;
-import com.burra.business.responses.CreateAuthorResponse;
+import com.burra.business.requests.author.CreateAuthorRequest;
+import com.burra.business.responses.author.CreateAuthorResponse;
 import com.burra.business.services.abstracts.AuthorService;
 import com.burra.dataAccess.abstracts.AuthorRepository;
 import com.burra.entities.Author;

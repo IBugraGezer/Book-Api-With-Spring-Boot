@@ -1,4 +1,4 @@
-package com.burra.business.responses;
+package com.burra.business.responses.author;
 
 import com.burra.entities.Author;
 
