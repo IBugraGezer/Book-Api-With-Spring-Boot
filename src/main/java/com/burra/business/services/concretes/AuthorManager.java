@@ -3,6 +3,7 @@ package com.burra.business.services.concretes;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.TransactionSystemException;
 
 import com.burra.business.exceptions.DataAlreadyExistsException;
 import com.burra.business.exceptions.ResourceNotFoundException;
@@ -13,6 +14,8 @@ import com.burra.business.responses.author.UpdateAuthorResponse;
 import com.burra.business.services.abstracts.AuthorService;
 import com.burra.dataAccess.abstracts.AuthorRepository;
 import com.burra.entities.Author;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class AuthorManager implements AuthorService {
@@ -51,6 +54,21 @@ public class AuthorManager implements AuthorService {
 
     Author updatedAuthor = authorRepository.save(existingAuthor);
     return new UpdateAuthorResponse(updatedAuthor);
+  }
+
+  @Override
+  @Transactional
+  public boolean delete(int id) throws ResourceNotFoundException {
+    if (!authorRepository.existsById(id)) {
+      throw new ResourceNotFoundException("bu id'ye sahip bir yazar bulunamadı");
+    }
+
+    try {
+      authorRepository.deleteById(id);
+      return true;
+    } catch (TransactionSystemException e) {
+      return false;
+    }
   }
 
 }

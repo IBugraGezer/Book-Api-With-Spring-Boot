@@ -16,4 +16,6 @@ public interface AuthorService {
   public CreateAuthorResponse create(CreateAuthorRequest request) throws DataAlreadyExistsException;
 
   public UpdateAuthorResponse update(UpdateAuthorRequest request, int id) throws ResourceNotFoundException;
+
+  public boolean delete(int id) throws ResourceNotFoundException;
 }
