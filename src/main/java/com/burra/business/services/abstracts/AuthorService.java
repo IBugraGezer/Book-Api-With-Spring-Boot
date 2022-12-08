@@ -13,5 +13,5 @@ public interface AuthorService {
 
   public CreateAuthorResponse create(CreateAuthorRequest request);
 
-  public UpdateAuthorResponse update(UpdateAuthorRequest request);
+  public UpdateAuthorResponse update(UpdateAuthorRequest request, int id);
 }
