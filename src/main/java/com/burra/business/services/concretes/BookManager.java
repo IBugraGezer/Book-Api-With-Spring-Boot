@@ -3,6 +3,7 @@ package com.burra.business.services.concretes;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.TransactionSystemException;
 
 import com.burra.business.exceptions.DataAlreadyExistsException;
 import com.burra.business.exceptions.ResourceNotFoundException;
@@ -18,6 +19,7 @@ import com.burra.entities.Book;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 @Service
 public class BookManager implements BookService {
@@ -80,6 +82,21 @@ public class BookManager implements BookService {
     bookRepository.save(book);
 
     return new UpdateBookResponse(book);
+  }
+
+  @Override
+  @Transactional
+  public boolean delete(int id) throws ResourceNotFoundException {
+    if (!bookRepository.existsById(id)) {
+      throw new ResourceNotFoundException("bu id'ye sahip bir kitap bulunamadı");
+    }
+
+    try {
+      bookRepository.deleteById(id);
+      return true;
+    } catch (TransactionSystemException e) {
+      return false;
+    }
   }
 
 }
