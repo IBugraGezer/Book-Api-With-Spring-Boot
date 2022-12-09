@@ -22,7 +22,7 @@ public class Author {
   @Column(name = "name")
   private String name;
 
-  @OneToMany(mappedBy = "authors")
+  @OneToMany(mappedBy = "author")
   private ArrayList<Book> books;
 
   public int getId() {
