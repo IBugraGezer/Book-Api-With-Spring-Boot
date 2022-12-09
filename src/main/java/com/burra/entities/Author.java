@@ -2,6 +2,8 @@ package com.burra.entities;
 
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +25,7 @@ public class Author {
   private String name;
 
   @OneToMany(mappedBy = "author")
+  @JsonManagedReference
   private ArrayList<Book> books;
 
   public int getId() {

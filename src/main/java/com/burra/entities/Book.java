@@ -1,5 +1,7 @@
 package com.burra.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +25,7 @@ public class Book {
 
   @ManyToOne
   @JoinColumn(name = "author_id", nullable = false)
+  @JsonBackReference
   private Author author;
 
   public int getId() {
