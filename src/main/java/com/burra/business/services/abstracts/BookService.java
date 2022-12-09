@@ -19,4 +19,6 @@ public interface BookService {
 
   public UpdateBookResponse update(UpdateBookRequest request, int id) throws ResourceNotFoundException;
 
+  public boolean delete(int id) throws ResourceNotFoundException;
+
 }
