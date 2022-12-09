@@ -61,8 +61,8 @@ public class BookManager implements BookService {
     book.setName(request.getName());
     book.setAuthor(author);
 
-    entityManager.persist(book);
+    Book newBook = bookRepository.save(book);
 
-    return new CreateBookResponse(book);
+    return new CreateBookResponse(newBook);
   }
 }
