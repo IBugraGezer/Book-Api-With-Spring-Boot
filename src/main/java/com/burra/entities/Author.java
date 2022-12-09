@@ -1,6 +1,6 @@
 package com.burra.entities;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -26,7 +26,7 @@ public class Author {
 
   @OneToMany(mappedBy = "author")
   @JsonManagedReference
-  private ArrayList<Book> books;
+  private List<Book> books;
 
   public int getId() {
     return id;
@@ -44,4 +44,11 @@ public class Author {
     this.name = name;
   }
 
+  public List<Book> getBooks() {
+    return books;
+  }
+
+  public void setBooks(List<Book> books) {
+    this.books = books;
+  }
 }
