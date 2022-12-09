@@ -14,4 +14,7 @@ public class UpdateAuthorRequest {
   public UpdateAuthorRequest(String name) {
     this.name = name;
   }
+
+  public UpdateAuthorRequest() {
+  }
 }
