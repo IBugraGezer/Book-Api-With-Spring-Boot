@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import com.burra.business.exceptions.DataAlreadyExistsException;
 import com.burra.business.exceptions.ResourceNotFoundException;
 import com.burra.business.requests.book.CreateBookRequest;
+import com.burra.business.requests.book.UpdateBookRequest;
 import com.burra.business.responses.book.CreateBookResponse;
+import com.burra.business.responses.book.UpdateBookResponse;
 import com.burra.business.services.abstracts.BookService;
 import com.burra.dataAccess.abstracts.AuthorRepository;
 import com.burra.dataAccess.abstracts.BookRepository;
@@ -65,4 +67,19 @@ public class BookManager implements BookService {
 
     return new CreateBookResponse(newBook);
   }
+
+  @Override
+  public UpdateBookResponse update(UpdateBookRequest request, int id) throws ResourceNotFoundException {
+    if (!bookRepository.existsById(id)) {
+      throw new ResourceNotFoundException("bu id'ye sahip bir kitap bulunamadı");
+    }
+
+    Book book = bookRepository.getReferenceById(id);
+
+    book.setName(request.getName());
+    bookRepository.save(book);
+
+    return new UpdateBookResponse(book);
+  }
+
 }
