@@ -59,7 +59,7 @@ public class BookManager implements BookService {
       throw new DataAlreadyExistsException("bu yazarda bu adda bir kitap zaten kayıtlı");
     }
 
-    Author author = authorRepository.getReferenceById(authorId);
+    Author author = authorRepository.findById(authorId).get();
 
     Book book = new Book();
     book.setName(request.getName());
@@ -76,7 +76,7 @@ public class BookManager implements BookService {
       throw new ResourceNotFoundException("bu id'ye sahip bir kitap bulunamadı");
     }
 
-    Book book = bookRepository.getReferenceById(id);
+    Book book = bookRepository.findById(id).get();
 
     book.setName(request.getName());
     bookRepository.save(book);
