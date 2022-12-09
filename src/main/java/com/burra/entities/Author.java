@@ -1,10 +1,13 @@
 package com.burra.entities;
 
+import java.util.ArrayList;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,6 +21,9 @@ public class Author {
 
   @Column(name = "name")
   private String name;
+
+  @OneToMany(mappedBy = "authors")
+  private ArrayList<Book> books;
 
   public int getId() {
     return id;
