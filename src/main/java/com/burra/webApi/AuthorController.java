@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.burra.business.exceptions.DataAlreadyExistsException;
-import com.burra.business.exceptions.ResourceNotFoundException;
 import com.burra.business.requests.author.CreateAuthorRequest;
 import com.burra.business.requests.author.UpdateAuthorRequest;
 import com.burra.business.responses.author.CreateAuthorResponse;
 import com.burra.business.responses.author.UpdateAuthorResponse;
 import com.burra.business.services.abstracts.AuthorService;
+import com.burra.core.exceptions.DataAlreadyExistsException;
+import com.burra.core.exceptions.ResourceNotFoundException;
 import com.burra.entities.Author;
 
 import jakarta.validation.Valid;

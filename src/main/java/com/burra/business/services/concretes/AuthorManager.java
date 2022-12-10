@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionSystemException;
 
-import com.burra.business.exceptions.DataAlreadyExistsException;
-import com.burra.business.exceptions.ResourceNotFoundException;
 import com.burra.business.requests.author.CreateAuthorRequest;
 import com.burra.business.requests.author.UpdateAuthorRequest;
 import com.burra.business.responses.author.CreateAuthorResponse;
 import com.burra.business.responses.author.UpdateAuthorResponse;
 import com.burra.business.services.abstracts.AuthorService;
+import com.burra.core.exceptions.DataAlreadyExistsException;
+import com.burra.core.exceptions.ResourceNotFoundException;
 import com.burra.dataAccess.abstracts.AuthorRepository;
 import com.burra.entities.Author;
 

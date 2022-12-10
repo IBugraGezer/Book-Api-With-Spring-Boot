@@ -1,4 +1,4 @@
-package com.burra.business.exceptions;
+package com.burra.core.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
